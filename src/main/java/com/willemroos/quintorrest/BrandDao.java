@@ -19,55 +19,20 @@ public class BrandDao
 	SessionFactory sf = null;
 	public BrandDao()
 	{
-//		String url = "jdbc:mysql://localhost:3306/quintor";
-//		String username = "root";
-//		String password = "";
-//		try 
-//		{
-//			Class.forName("com.mysql.jdbc.Driver");
-//			con = DriverManager.getConnection(url, username, password);
-//		}
-//		catch (Exception e) {
-//			System.out.println(e);
-////			e.printStackTrace();
-//		}
-		
+
 		
 		Configuration conf = new Configuration().configure().addAnnotatedClass(Brands.class);
-//		conf.configure("hibernate.cfg.xml");
-
+		
 		sf = conf.buildSessionFactory();
 		
-//		session.save(object)
-//		session.close();
 		
 	}
 	
 	public List<Brands> getBrands()
 	{
 		Session session = sf.openSession();
-
-//		List<Brands> brands = (List<Brands>) session.createQuery("FROM brands");
 		List<Brands> brands = session.createCriteria(Brands.class).list();
-//		List<Brands> brands = new ArrayList<>();
-//		String sql = "SELECT * FROM brands";
-//		try {
-//			Statement st = con.createStatement();
-//			ResultSet rs = st.executeQuery(sql);
-//			while(rs.next())
-//			{
-//				Brands b = new Brands();
-//				b.setId(rs.getInt(1));
-//				b.setName(rs.getString(2));
-//				
-//				brands.add(b);
-//				
-//			}
-//			
-//		} catch (Exception e) {
-//			System.out.println(e);
-////			e.printStackTrace();
-//		}
+
 		
 		session.close();
 

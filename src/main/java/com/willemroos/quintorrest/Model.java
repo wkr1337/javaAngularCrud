@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.springframework.beans.factory.annotation.Autowired;
 @Entity
 @Table(name= "models")
 @XmlRootElement
@@ -31,7 +33,6 @@ public class Model {
 	private Brands brand;
 	
 	public Model () {
-		
 		
 		BrandDao brandDao = new BrandDao();
 		this.brand = brandDao.getBrand(this.brand_id);

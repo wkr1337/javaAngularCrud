@@ -170,7 +170,13 @@
     			
     		}
     		
-    		
+    	//	<div *ngIf="editNumber === model.id">
+		//  	Edit Number == {{editNumber === model.id}}
+		//  		<input type="text" ng-model="editModelName" ng-value="model.name">
+		//  		<input type="number" ng-model="editModelBrandId" ng-value="model.brand_id"><br>
+  		//    	<button ng-click="editModel1(model.id)">Edit this model</button>
+		//  		
+		//  	</div>
     	});
     
     </script>
