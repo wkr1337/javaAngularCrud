@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', []);
 myApp.controller('myCtrl', function($scope, $http, $sce, $httpParamSerializer) {
 //	get all brands
 	$scope.getAllBrands = function() {
-		$http.get('http://localhost:8080/quintorrest/webapi/brands')
+		$http.get('http://localhost:8081/quintorrest/webapi/brands')
 		.success(function(response){
 			
 			$scope.allBrands = response;
@@ -16,7 +16,7 @@ myApp.controller('myCtrl', function($scope, $http, $sce, $httpParamSerializer) {
 	
 //	get brands by name(calls getModels())
 	$scope.getBrandByName = function() {
-		$http.get('http://localhost:8080/quintorrest/webapi/brands/brand/getname/' + $scope.brandName)
+		$http.get('http://localhost:8081/quintorrest/webapi/brands/brand/getname/' + $scope.brandName)
 		.success(function(response){
 		
 		$scope.brandByName = response;
@@ -30,7 +30,7 @@ myApp.controller('myCtrl', function($scope, $http, $sce, $httpParamSerializer) {
 //	get models
 	$scope.getModels = function() {
 //		console.log($scope.brandId);
-		$http.get('http://localhost:8080/quintorrest/webapi/models/brands/' + $scope.brandId)
+		$http.get('http://localhost:8081/quintorrest/webapi/models/brands/' + $scope.brandId)
 		.success(function(response){
 		$scope.models = response;
 		});
@@ -77,7 +77,7 @@ myApp.controller('myCtrl', function($scope, $http, $sce, $httpParamSerializer) {
 				"name" : name,
 				"brand_id" : brand_id
 			};
-			$http.post('http://localhost:8080/quintorrest/webapi/models/model/',dataObj);
+			$http.post('http://localhost:8081/quintorrest/webapi/models/model/',dataObj);
 			}
 		
 	}
@@ -90,7 +90,7 @@ myApp.controller('myCtrl', function($scope, $http, $sce, $httpParamSerializer) {
 	
 //	Delete model by model id
 	$scope.deleteModel = function(id) {
-		$http.delete('http://localhost:8080/quintorrest/webapi/models/model/' + id)
+		$http.delete('http://localhost:8081/quintorrest/webapi/models/model/' + id)
 		.success(function(response){
 		console.log("model" + id + " deleted");
 //		should change this to update only the affected model
