@@ -98,15 +98,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
-<repositories>
-    <repository>
+<distributionManagement>    
+<repository>
+      <uniqueVersion>false</uniqueVersion>
+
         <id>quintorrest-mvn-repo</id>
         <url>https://github.com/wkr1337/javaAngularCrud</url>
-        <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>always</updatePolicy>
-        </snapshots>
-    </repository>
-</repositories>
+            </repository>
+        
+  </distributionManagement>
 </project>
 
