@@ -97,4 +97,16 @@
         <jersey.version>2.27</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+<repositories>
+    <repository>
+        <id>quintorrest-mvn-repo</id>
+        <url>https://github.com/wkr1337/javaAngularCrud</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+</repositories>
 </project>
+
