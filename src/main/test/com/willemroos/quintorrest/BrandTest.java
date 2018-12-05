@@ -1,4 +1,4 @@
-package test;
+package com.willemroos.quintorrest;
 
 import static org.junit.Assert.*;
 
@@ -22,8 +22,7 @@ public class BrandTest {
 		Brands brand = new Brands();
 		brand.setName("Test123");
 		assertEquals("Test123", brand.getName());
-
-	
 	}
+	
 
 }

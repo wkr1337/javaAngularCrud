@@ -86,7 +86,17 @@
     <scope>test</scope>
 </dependency>
 
-
+<dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>3.0.0</version>
+      <scope>test</scope>
+</dependency>
+<dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>json-path</artifactId>
+      <version>3.0.0</version>
+</dependency>
 
 
 
@@ -97,4 +107,15 @@
         <jersey.version>2.27</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+<distributionManagement>    
+<repository>
+      <uniqueVersion>false</uniqueVersion>
+
+        <id>quintorrest-mvn-repo</id>
+        <url>https://github.com/wkr1337/javaAngularCrud</url>
+            </repository>
+        
+  </distributionManagement>
 </project>
+
