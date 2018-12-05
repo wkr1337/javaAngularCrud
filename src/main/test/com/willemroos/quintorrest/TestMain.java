@@ -1,4 +1,4 @@
-package test;
+package com.willemroos.quintorrest;
 
 import static org.junit.Assert.*;
 
