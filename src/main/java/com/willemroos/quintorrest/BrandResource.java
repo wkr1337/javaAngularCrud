@@ -30,7 +30,7 @@ public class BrandResource
 		
 	}
 	@GET
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML}) // content negotiation 
+	@Produces(MediaType.APPLICATION_JSON) // content negotiation 
 	public List<Brands> getBrands() 
 	{
 		
@@ -43,7 +43,7 @@ public class BrandResource
 	
 	@GET
 	@Path("brand/{id}")
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces(MediaType.APPLICATION_JSON)
 	public Brands getBrand(@PathParam("id") int id) 
 	{
 		return brandsDao.getBrand(id); 
@@ -53,7 +53,7 @@ public class BrandResource
 	
 	@GET
 	@Path("brand/getname/{name}")
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces(MediaType.APPLICATION_JSON)
 	public Brands getBrand(@PathParam("name") String name) 
 	{
 		return brandsDao.getBrandByName(name); 
@@ -64,7 +64,8 @@ public class BrandResource
 	
 	@POST
 	@Path("brand")
-	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Brands createBrand(Brands b1)
 	{
 		System.out.println(b1);
@@ -74,7 +75,7 @@ public class BrandResource
 	
 	@PUT
 	@Path("brand")
-	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Brands updateBrand(Brands b1)
 	{
 		System.out.println(b1);
@@ -93,6 +94,8 @@ public class BrandResource
 	
 	@DELETE
 	@Path("brand/{id}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Brands deleteBrand(@PathParam("id") int id)
 	{
 		Brands b1 = brandsDao.getBrand(id);
