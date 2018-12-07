@@ -22,7 +22,7 @@ public class BrandResourceTest {
 
 	@Test
 	public void testGetBrands() {
-		get("http://localhost:8081/quintorrest/webapi/brands").then().assertThat().body("id", hasItems(1, 2, 3, 4, 5));
+		get("http://localhost:8081/quintorrest/webapi/brands").then().assertThat().body("id", hasItems(1, 2, 3, 13, 14));
 
 	}
 
@@ -59,7 +59,7 @@ public class BrandResourceTest {
 
 	@Test
 	public void testDeleteBrand() {
-		int brandId = given().contentType("application/json").get("http://localhost:8081/quintorrest/webapi/brands/brand/getname/testBrandName").path("id");
+		Object brandId = given().contentType("application/json").get("http://localhost:8081/quintorrest/webapi/brands/brand/getname/testBrandName").path("id");
 		delete("http://localhost:8081/quintorrest/webapi/brands/brand/" + brandId).then().assertThat().body("id", equalTo(brandId), "name", equalTo("testBrandName"));
 //		get("http://localhost:8081/quintorrest/webapi/brands/brand/" + brandId).then().assertThat().body("", Matchers.hasSize(0));
 
