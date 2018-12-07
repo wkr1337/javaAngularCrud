@@ -5,6 +5,7 @@ import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
+import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.junit.Test;
 
@@ -60,6 +61,8 @@ public class BrandResourceTest {
 	public void testDeleteBrand() {
 		int brandId = given().contentType("application/json").get("http://localhost:8081/quintorrest/webapi/brands/brand/getname/testBrandName").path("id");
 		delete("http://localhost:8081/quintorrest/webapi/brands/brand/" + brandId).then().assertThat().body("id", equalTo(brandId), "name", equalTo("testBrandName"));
+//		get("http://localhost:8081/quintorrest/webapi/brands/brand/" + brandId).then().assertThat().body("", Matchers.hasSize(0));
+
 	}
 
 }

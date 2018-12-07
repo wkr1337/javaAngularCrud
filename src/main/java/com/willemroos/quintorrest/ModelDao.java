@@ -80,7 +80,7 @@ public class ModelDao {
 
 	public void delete(int id) {
 		Session session = sf.openSession();
-		
+	
         Transaction transaction = session.getTransaction();
         transaction.begin();
         Model model1 = session.get(Model.class, id);

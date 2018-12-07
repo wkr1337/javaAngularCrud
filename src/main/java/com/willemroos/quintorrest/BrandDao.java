@@ -73,6 +73,7 @@ public class BrandDao
 //		} catch (Exception e) {
 //			System.out.println(e);
 //		}
+//		System.out.println(b);
 		return b; 
 	}
 
