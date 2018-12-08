@@ -37,7 +37,7 @@ public class ModelDao {
 		query.setParameter("brandId", brandId);
 		List<Model> modelList = query.list();
 		session.close();
-		sf.close();
+//		sf.close();
 
 		return modelList;
 	}

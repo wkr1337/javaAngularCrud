@@ -14,89 +14,87 @@ public class BrandDao
 {
 	List<Brands> brands;
 	
-	Connection con = null;
-//	Session session = null;
-	SessionFactory sf = null;
+//	Connection con = null;
+////	Session session = null;
+//	SessionFactory sf = null;
 	public BrandDao()
 	{
 
 		
-		Configuration conf = new Configuration().configure().addAnnotatedClass(Brands.class);
-		
-		sf = conf.buildSessionFactory();
+//		Configuration conf = new Configuration().configure().addAnnotatedClass(Brands.class);
+//		
+//		sf = conf.buildSessionFactory();
 		
 		
 	}
 	
 	public List<Brands> getBrands()
 	{
+Configuration conf = new Configuration().configure().addAnnotatedClass(Brands.class);
+		
+		SessionFactory sf = conf.buildSessionFactory();
 		Session session = sf.openSession();
 		List<Brands> brands = session.createCriteria(Brands.class).list();
 
 		
 		session.close();
+		sf.close();
+
 
 		return brands;
 	}
 	
 	public Brands getBrandByName(String brandName)
 	{
+Configuration conf = new Configuration().configure().addAnnotatedClass(Brands.class);
+		
+		SessionFactory sf = conf.buildSessionFactory();
 //		Brands b = new Brands();
 		Session session = sf.openSession();
 		Query query = session.createQuery("From Brands where name=:name");
 		query.setParameter("name", brandName);
 		Brands b = (Brands) query.uniqueResult();
+		session.close();
+		sf.close();
+
+
 		return b;
 	}
 	
 	public Brands getBrand(int id)
 	{
+Configuration conf = new Configuration().configure().addAnnotatedClass(Brands.class);
+		
+		SessionFactory sf = conf.buildSessionFactory();
 		Session session = sf.openSession();
 
-//		String sql = "SELECT * FROM brands WHERE id="+id;
 		Brands b = new Brands();
 		b = session.get(Brands.class, id);
 		session.close();
-	//	sf.close();
-//
-//		try {
-//			Statement st = con.createStatement();
-//			ResultSet rs = st.executeQuery(sql);
-//			if(rs.next())
-//			{
-//				b.setId(rs.getInt(1));
-//				b.setName(rs.getString(2));
-//				
-//				
-//			}
-//			
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
-//		System.out.println(b);
+		sf.close();
+
+
 		return b; 
 	}
 
 	public void create(Brands b1) 
 	{
+Configuration conf = new Configuration().configure().addAnnotatedClass(Brands.class);
+		
+		SessionFactory sf = conf.buildSessionFactory();
 		Session session = sf.openSession();
 
-//		String sql = "INSERT INTO brands (name) VALUES(?)";
-//		try {
-////			PreparedStatement st = con.prepareStatement(sql);
-////			st.setString(1, b1.getName());
-////			st.executeUpdate();
-//			
-//			
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
 		session.save(b1);
 		session.close();
+		sf.close();
+
 		
 	}
 	public void update(Brands b1) 
 	{
+Configuration conf = new Configuration().configure().addAnnotatedClass(Brands.class);
+		
+		SessionFactory sf = conf.buildSessionFactory();
 		Session session = sf.openSession();
 
 		Transaction tx = null;
@@ -112,28 +110,19 @@ public class BrandDao
 	         e.printStackTrace(); 
 	      }finally {
 	         session.close(); 
+	 		sf.close();
+
 	      }
 		
 		
-		
-		
-//		String sql = "UPDATE brands set name=? where id=?";
-//		try {
-//			PreparedStatement st = con.prepareStatement(sql);
-//			st.setString(1, b1.getName());
-//			st.setInt(2, b1.getId());
-//			st.executeUpdate();
-//			
-//			
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
-	      
 		
 	}
 
 	public void delete(int id) 
 	{
+Configuration conf = new Configuration().configure().addAnnotatedClass(Brands.class);
+		
+		SessionFactory sf = conf.buildSessionFactory();
 		Session session = null;
 		Transaction transaction = null;
 	      try {
@@ -155,17 +144,7 @@ public class BrandDao
 	           e.printStackTrace();
 	      }
 		session.close(); 
+		sf.close();
 
-
-//		String sql = "DELETE FROM brands where id=?";
-//		try {
-//			PreparedStatement st = con.prepareStatement(sql);
-//			st.setInt(1, id);
-//			st.executeUpdate();
-//			
-//			
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
 	}
 }
