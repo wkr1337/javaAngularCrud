@@ -52,7 +52,7 @@ public class BrandResource
 	
 	
 	@GET
-	@Path("brand/getname/{name}")
+	@Path("brand/brandname/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Brands getBrand(@PathParam("name") String name) 
 	{
@@ -78,8 +78,8 @@ public class BrandResource
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Brands updateBrand(Brands b1)
 	{
-		System.out.println(b1);
-		if(brandsDao.getBrand(b1.getId()).getId() == 0) 
+//		System.out.println(b1);
+		if(b1.getId() == 0) 
 		{
 			brandsDao.create(b1);
 		}
