@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @Path("brands")
 public class BrandResource 
@@ -27,7 +28,10 @@ public class BrandResource
 	{
 		ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
 		brandsDao = factory.getBean(BrandDao.class);
+		((ConfigurableApplicationContext)factory).close();
 		
+
+
 	}
 	@GET
 	@Produces(MediaType.APPLICATION_JSON) // content negotiation 
